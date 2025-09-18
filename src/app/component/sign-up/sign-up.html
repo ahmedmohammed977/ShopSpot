@@ -1,0 +1,155 @@
+<section class="signup-section">
+  <h2>Register</h2>
+  <form
+    [formGroup]="signupform"
+    (ngSubmit)="handleSubmit()"
+    class="signup-form"
+  >
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Your Name....."
+        formControlName="name"
+        class="form-control"
+      />
+
+      @if (signupform.get('name')?.errors && signupform.get('name')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (signupform.get('name')?.getError('required')) {
+            <p>Name is required</p>
+          }
+          @if (signupform.get('name')?.getError('minlength')) {
+            <p>Name must be at least 3 characters</p>
+          }
+          @if (signupform.get('name')?.getError('maxlength')) {
+            <p>Name must be at most 30 characters</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Your Email....."
+        formControlName="email"
+        class="form-control"
+      />
+
+      @if (signupform.get('email')?.errors && signupform.get('email')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (signupform.get('email')?.getError('required')) {
+            <p>Email is required</p>
+          }
+          @if (signupform.get('email')?.getError('email')) {
+            <p>Please enter a valid email</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Password -->
+    <div class="form-group password-group">
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input
+          id="password"
+          [type]="showPassword ? 'text' : 'password'"
+          placeholder="Enter Your Password....."
+          formControlName="password"
+          class="form-control"
+        />
+        <button type="button" class="eye-btn" (click)="togglePassword()">
+          @if (showPassword) {
+            <span>👁️</span>
+          } @else {
+            <span>🙈</span>
+          }
+        </button>
+      </div>
+
+      @if (signupform.get('password')?.errors && signupform.get('password')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (signupform.get('password')?.getError('required')) {
+            <p>Password is required</p>
+          }
+          @if (signupform.get('password')?.getError('pattern')) {
+            <p>
+              Password must be at least 6 characters and contain only letters,
+              numbers, or _@
+            </p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group password-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <div class="password-wrapper">
+        <input
+          id="confirmPassword"
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          placeholder="Confirm Your Password"
+          formControlName="confirmPassword"
+          class="form-control"
+        />
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="toggleConfirmPassword()"
+        >
+          @if (showConfirmPassword) {
+            <span>👁️</span>
+          } @else {
+            <span>🙈</span>
+          }
+        </button>
+      </div>
+
+      @if (signupform.get('confirmPassword')?.errors && signupform.get('confirmPassword')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (signupform.get('confirmPassword')?.getError('required')) {
+            <p>Confirm Password is required</p>
+          }
+          @if (signupform.get('confirmPassword')?.getError('mismatch')) {
+            <p>Passwords do not match</p>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input
+        id="phoneNumber"
+        type="tel"
+        placeholder="Your Phone Number....."
+        formControlName="phoneNumber"
+        class="form-control"
+      />
+
+      @if (signupform.get('phoneNumber')?.errors && signupform.get('phoneNumber')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (signupform.get('phoneNumber')?.getError('required')) {
+            <p>Phone Number is required</p>
+          }
+          @if (signupform.get('phoneNumber')?.getError('pattern')) {
+            <p>Please enter a valid Egyptian phone number</p>
+          }
+        </div>
+      }
+    </div>
+
+    <button class="main-btn pulse-btn" [disabled]="signupform.invalid">
+      Register
+    </button>
+  </form>
+</section>

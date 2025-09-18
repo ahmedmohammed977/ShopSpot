@@ -1,0 +1,102 @@
+<div class="container mt-5">
+  <div class="card account-card p-4 shadow-lg rounded-4">
+    <h3 class="text-center mb-4 fw-bold title">My Account</h3>
+
+    @if (userData && !editMode) {
+      <!-- Display mode -->
+      <div class="row g-3 mb-4">
+        <div class="col-12 info-row">
+          <p class="fs-5"><strong>Full Name:</strong> <span>{{ userData.name }}</span></p>
+        </div>
+        <div class="col-12 info-row">
+          <p class="fs-5"><strong>Email:</strong> <span>{{ userData.email }}</span></p>
+        </div>
+        <div class="col-12 info-row">
+          <p class="fs-5"><strong>Password:</strong> <span>********</span></p>
+        </div>
+        <div class="col-12 info-row">
+          <p class="fs-5"><strong>Phone Number:</strong> <span>{{ userData.phoneNumber }}</span></p>
+        </div>
+      </div>
+
+      <div class="d-grid gap-3">
+        <button class="btn btn-edit" (click)="toggleEdit()">
+          <i class="fa fa-edit me-2"></i>Edit Profile
+        </button>
+        <button class="btn btn-logout" (click)="logout()">
+          <i class="fa fa-sign-out me-2"></i>Logout
+        </button>
+      </div>
+    } @else {
+      <!-- Edit form -->
+      <form [formGroup]="accountForm" (ngSubmit)="saveChanges()">
+        <div class="row g-3">
+          <!-- Name -->
+          <div class="col-12">
+            <label class="form-label fw-semibold">Full Name</label>
+            <input type="text" class="form-control input-field" formControlName="name" placeholder="Enter full name"/>
+            @if (name?.touched && name?.invalid) {
+              <div class="text-danger small mt-1">
+                @if (name?.errors?.['required']) { <div>Name is required.</div> }
+                @if (name?.errors?.['minlength']) { <div>Name must be at least 3 characters.</div> }
+                @if (name?.errors?.['maxlength']) { <div>Name must be at most 30 characters.</div> }
+              </div>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="col-12">
+            <label class="form-label fw-semibold">Email</label>
+            <input type="email" class="form-control input-field" formControlName="email" placeholder="Enter your email"/>
+            @if (email?.touched && email?.invalid) {
+              <div class="text-danger small mt-1">
+                @if (email?.errors?.['required']) { <div>Email is required.</div> }
+                @if (email?.errors?.['email']) { <div>Please enter a valid email.</div> }
+              </div>
+            }
+          </div>
+
+          <!-- Password -->
+          <div class="col-12 position-relative">
+            <label class="form-label fw-semibold">Password</label>
+            <div class="input-group input-group-password">
+              <input
+                [type]="showPassword ? 'text' : 'password'"
+                class="form-control input-field border-end-0"
+                formControlName="password"
+                placeholder="Enter password"
+              />
+              <button type="button" class="btn btn-outline-secondary border-start-0 toggle-btn" (click)="showPassword = !showPassword">
+                <i class="fa" [ngClass]="showPassword ? 'fa-eye' : 'fa-eye-slash'"></i>
+              </button>
+            </div>
+            @if (password?.touched && password?.invalid) {
+              <div class="text-danger small mt-1">
+                @if (password?.errors?.['required']) { <div>Password is required.</div> }
+                @if (password?.errors?.['minlength']) { <div>Password must be at least 6 characters.</div> }
+              </div>
+            }
+          </div>
+
+          <!-- Phone -->
+          <div class="col-12">
+            <label class="form-label fw-semibold">Phone Number</label>
+            <input type="tel" class="form-control input-field" formControlName="phoneNumber" placeholder="01xxxxxxxxx"/>
+            @if (phoneNumber?.touched && phoneNumber?.invalid) {
+              <div class="text-danger small mt-1">
+                @if (phoneNumber?.errors?.['required']) { <div>Phone number is required.</div> }
+                @if (phoneNumber?.errors?.['pattern']) { <div>Please enter a valid Egyptian phone number (01xxxxxxxxx).</div> }
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-grid gap-3 mt-4">
+          <button class="btn btn-save" type="submit" [disabled]="accountForm.invalid">Save Changes</button>
+          <button class="btn btn-cancel" type="button" (click)="toggleEdit()">Cancel</button>
+        </div>
+      </form>
+    }
+  </div>
+</div>

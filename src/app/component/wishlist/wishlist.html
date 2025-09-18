@@ -1,0 +1,41 @@
+<div class="container wishlist-container">
+  <h2>Wishlist</h2>
+
+  @if (wishlist.length > 0) {
+    <div class="row g-3">
+      @for (product of wishlist; track product.id) {
+        <div class="col-md-3">
+          <div class="card h-100">
+            <img
+              [src]="product.image"
+              class="card-img-top"
+              [alt]="product.title"
+              height="200"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.title }}</h5>
+              <p class="card-text">{{ product.price | currency : 'EGP' }}</p>
+              <button
+                class="btn btn-danger w-100"
+                (click)="removeFromWishlist(product)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="text-center mt-4">
+      <a routerLink="/product" class="btn btn-primary">Continue Shopping</a>
+    </div>
+  } @else {
+    <p class="text-center">Your wishlist is empty</p>
+    <div class="text-center mt-3">
+      <a routerLink="/product" class="btn btn-success">Browse Products</a>
+    </div>
+  }
+</div>

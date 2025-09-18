@@ -1,1 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
+.toast-container .ngx-toastr {
+  font-size: 15px !important;
+  padding: 14px 18px 14px 45px !important; 
+  border-radius: 12px !important;
+  font-weight: 600;
+  position: relative;
+  animation: fadeInUp 0.5s ease;
+  color: #fff !important;
+}
+.toast-success {
+  background: linear-gradient(135deg, #4caf50, #2e7d32) !important;
+}
+.toast-success::before {
+  content: "✅";
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toast-error {
+  background: linear-gradient(135deg, #f44336, #c62828) !important;
+}
+.toast-error::before {
+  content: "❌";
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toast-info {
+  background: linear-gradient(135deg, #2196f3, #1565c0) !important;
+}
+.toast-info::before {
+  content: "ℹ️";
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.toast-warning {
+  background: linear-gradient(135deg, #ff9800, #ef6c00) !important;
+}
+.toast-warning::before {
+  content: "⚠️";
+  position: absolute;
+  left: 15px;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* شكل فخم ومبهّر للرسائل */
+.custom-toast {
+  background: linear-gradient(135deg, #ff5f6d, #ffc371); /* تدرج ألوان جذاب */
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  border: 2px solid #fff;
+}
+
+.custom-toast .toast-progress {
+  background: #fff !important; /* شريط التقدم بلون بارز */
+}

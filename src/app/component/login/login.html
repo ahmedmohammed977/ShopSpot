@@ -1,0 +1,48 @@
+<section class="signup-section">
+  <h2>Login</h2>
+  <form [formGroup]="loginform" (ngSubmit)="handleLogin(loginform)" class="signup-form">
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Your Email....." formControlName="email" class="form-control">
+
+      @if (loginform.get('email')?.errors && loginform.get('email')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (loginform.get('email')?.getError('required')) {
+            <p>Email is required</p>
+          }
+          @if (loginform.get('email')?.getError('email')) {
+            <p>Please enter a valid email</p>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="form-group password-group">
+      <label for="password">Password</label>
+      <div class="password-wrapper">
+        <input id="password" [type]="showPassword ? 'text' : 'password'" placeholder="Enter Your Password....." formControlName="password" class="form-control">
+        <button type="button" class="eye-btn" (click)="togglePassword()">
+          @if (showPassword) {
+            <span>👁️</span>
+          } @else {
+            <span>🙈</span>
+          }
+        </button>
+      </div>
+
+      @if (loginform.get('password')?.errors && loginform.get('password')?.touched) {
+        <div class="alert-danger fade-in">
+          @if (loginform.get('password')?.getError('required')) {
+            <p>Password is required</p>
+          }
+          @if (loginform.get('password')?.getError('pattern')) {
+            <p>Password must be at least 6 characters and contain only letters, numbers, or _@</p>
+          }
+        </div>
+      }
+    </div>
+
+    <button class="main-btn pulse-btn" [disabled]="loginform.invalid">Login</button>
+  </form>
+</section>

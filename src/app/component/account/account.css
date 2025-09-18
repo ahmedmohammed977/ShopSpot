@@ -1,0 +1,74 @@
+.account-card {
+  background: #f8f9fa;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 110px;
+}
+.account-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+.title {
+  color: #343a40;
+  letter-spacing: 0.5px;
+}
+
+/* Input fields */
+.input-field {
+  border-radius: 12px;
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  transition: 0.3s;
+}
+.input-field:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px rgba(13,110,253,0.2);
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+}
+.btn-edit {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  color: #fff;
+}
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13,110,253,0.3);
+}
+.btn-logout {
+  background: #dc3545;
+  color: #fff;
+}
+.btn-logout:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+.btn-save {
+  background: linear-gradient(90deg, #198754, #20c997);
+  color: #fff;
+}
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(25,135,84,0.3);
+}
+.btn-cancel {
+  background: #6c757d;
+  color: #fff;
+}
+.btn-cancel:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* Password toggle */
+.input-group-password .toggle-btn {
+  border-radius: 0 12px 12px 0;
+  cursor: pointer;
+}

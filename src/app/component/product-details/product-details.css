@@ -1,0 +1,7 @@
+.product-container {
+  padding-top: 120px; /* يبعد المحتوى عن النافبار */
+  min-height: calc(100vh - 120px); /* يضمن وجود مساحة كافية للعرض فوق نصف الصفحة */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* يجعل المحتوى متوسط عموديًا */
+}

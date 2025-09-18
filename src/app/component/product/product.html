@@ -1,0 +1,72 @@
+<div class="container my-4">
+  <!-- عنوان في النص -->
+  <h3 class="best-seller-title">Search Results</h3>
+  <div class="d-flex justify-content-center mb-3">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="form-control w-75"
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+
+  <!-- المنتجات -->
+  <div class="row g-3 justify-content-center my-3">
+    @for (product of productsArray | filter: searchTerm; track product.id) {
+      <div class="col-md-2 product">
+        <div role="button" [routerLink]="['/productDetails', product.id]">
+          <img
+            [src]="product.image"
+            [alt]="product.title"
+            class="w-100"
+            height="300"
+            loading="lazy"
+            decoding="async"
+          />
+          <h4 class="fs-5 fw-normal pt-2">{{ product.title | textTrim:3 }}</h4>
+          <p class="d-flex w-100 justify-content-between align-items-center fw-bold">
+            <span>{{ product.price | currency:'EGP' }}</span>
+            <span>{{ product.rating.rate }} <i class="fa fa-star rating-star"></i></span>
+          </p>
+        </div>
+
+        <div class="w-100">
+          <!-- زر السلة -->
+          @if (isInCart(product)) {
+            <button class="btn btn-success w-100" disabled>
+              <i class="fa fa-check"></i>
+              موجود في السلة
+            </button>
+          } @else {
+            <button
+              class="btn btn-outline-primary w-100"
+              (click)="addToCart(product)"
+            >
+              <i class="fa fa-shopping-cart"></i>
+              إضافة للسلة
+            </button>
+          }
+
+          <!-- زر المفضلة -->
+          @if (isInWishlist(product)) {
+            <button
+              class="btn btn-danger w-100 mt-2"
+              (click)="removeFromWishlist(product)"
+            >
+              <i class="fa fa-heart"></i>
+              إزالة من المفضلة
+            </button>
+          } @else {
+            <button
+              class="btn btn-outline-danger w-100 mt-2"
+              (click)="addToWishlist(product)"
+            >
+              <i class="fa fa-heart-o"></i>
+              إضافة للمفضلة
+            </button>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

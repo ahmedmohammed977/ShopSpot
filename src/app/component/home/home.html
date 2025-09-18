@@ -1,0 +1,48 @@
+<div class="container-fluid" style="padding-top: 80px;">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h3 class="best-seller-title">Best Seller</h3>
+      <div class="row g-3 justify-content-center">
+
+        @for (product of productsArray | slice:0:7; track product.id) {
+          <div class="col-md-2 product">
+            <div role="button" [routerLink]="['/productDetails', product.id]">
+              <img
+                [src]="product.image"
+                [alt]="product.title"
+                class="w-100"
+                height="300"
+                loading="lazy"
+                decoding="async"
+              />
+              <h4 class="fs-5 fw-normal pt-2">{{ product.title | textTrim:3 }}</h4>
+              <p class="d-flex w-100 justify-content-between align-items-center fw-bold">
+                <span>{{ product.price | currency:'EGP' }}</span>
+                <span>{{ product.rating.rate }} <i class="fa fa-star rating-star"></i></span>
+              </p>
+            </div>
+
+            <div class="w-100">
+              <button
+                class="btn w-100"
+                [ngClass]="isInCart(product) ? 'btn-success' : 'btn-outline-primary'"
+                (click)="addToCart(product)"
+                [disabled]="isInCart(product)">
+                <i class="fa" [ngClass]="isInCart(product) ? 'fa-check' : 'fa-shopping-cart'"></i>
+                {{ isInCart(product) ? 'موجود في السلة' : 'إضافة للسلة' }}
+              </button>
+
+              <button
+                class="btn btn-outline-danger w-100 mt-2"
+                (click)="isInWishlist(product) ? removeFromWishlist(product) : addToWishlist(product)">
+                <i class="fa" [ngClass]="isInWishlist(product) ? 'fa-heart' : 'fa-heart-o'"></i>
+                {{ isInWishlist(product) ? 'إزالة من المفضلة' : 'إضافة للمفضلة' }}
+              </button>
+            </div>
+          </div>
+        }
+
+      </div>
+    </div>
+  </div>
+</div>

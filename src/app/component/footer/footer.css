@@ -1,0 +1,15 @@
+.custom-footer {
+  background: linear-gradient(90deg, #ff7a18, #af002d);
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.custom-footer p {
+  margin: 0;
+}

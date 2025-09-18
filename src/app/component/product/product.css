@@ -1,0 +1,110 @@
+.container {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  color: #333;
+}
+
+.container input.form-control {
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container input.form-control:focus {
+  border-color: #ff3c3c;
+  box-shadow: 0 0 8px rgba(255, 60, 60, 0.4);
+  outline: none;
+}
+
+.row .product {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.row .product:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+.row .product img {
+  border-radius: 15px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.row .product:hover img {
+  transform: scale(1.08);
+}
+
+.row .product h4 {
+  color: #444;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 10px;
+  min-height: 50px;
+}
+
+.row .product p {
+  color: #111;
+  font-size: 0.95rem;
+}
+
+.rating-star {
+  color: #ffc107;
+}
+
+app-add-to-cart button,
+.main-btn {
+  background: linear-gradient(90deg, #ff8c00, #ff3c3c);
+  color: #fff !important;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 60, 60, 0.4);
+}
+
+app-add-to-cart button:hover,
+.main-btn:hover {
+  background: linear-gradient(90deg, #ff3c3c, #ff8c00);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 60, 60, 0.55);
+}
+
+@media (max-width: 768px) {
+  .row .product {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container input.form-control {
+    width: 100% !important;
+  }
+}
+/* مساحة تحت النافبار */
+body {
+  padding-top: 70px; /* نفس ارتفاع النافبار */
+}
+
+/* عنوان الصفحة في النص */
+h3.best-seller-title {
+  text-align: center;
+  margin-top: 120px;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #ff416c; /* ممكن تغير اللون حسب رغبتك */
+}
+
+/* تجعل كل محتوى المنتجات مركزي */
+.row.justify-content-center {
+  justify-content: center !important;
+}
