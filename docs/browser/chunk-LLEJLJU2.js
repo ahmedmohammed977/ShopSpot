@@ -1,0 +1,1 @@
+import{Wa as t}from"./chunk-EPP6732M.js";var n=class e{transform(i,r){return i.split(" ").slice(0,r).join(" ")}static \u0275fac=function(r){return new(r||e)};static \u0275pipe=t({name:"textTrim",type:e,pure:!0})};export{n as a};
