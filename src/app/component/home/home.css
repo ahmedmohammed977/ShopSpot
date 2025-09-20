@@ -137,7 +137,7 @@ app-add-to-cart button:hover,
 }
 .content-below-navbar {
   padding-top: 80px;
-  min-height: calc(100vh - 120px); /* يضمن وجود مساحة كافية للعرض فوق نصف الصفحة */
+  min-height: calc(100vh - 120px); 
   display: flex;
   flex-direction: column;
   justify-content: center;

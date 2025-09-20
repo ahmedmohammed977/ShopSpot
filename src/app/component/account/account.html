@@ -3,7 +3,6 @@
     <h3 class="text-center mb-4 fw-bold title">My Account</h3>
 
     @if (userData && !editMode) {
-      <!-- Display mode -->
       <div class="row g-3 mb-4">
         <div class="col-12 info-row">
           <p class="fs-5"><strong>Full Name:</strong> <span>{{ userData.name }}</span></p>
@@ -28,10 +27,8 @@
         </button>
       </div>
     } @else {
-      <!-- Edit form -->
       <form [formGroup]="accountForm" (ngSubmit)="saveChanges()">
         <div class="row g-3">
-          <!-- Name -->
           <div class="col-12">
             <label class="form-label fw-semibold">Full Name</label>
             <input type="text" class="form-control input-field" formControlName="name" placeholder="Enter full name"/>
@@ -43,8 +40,6 @@
               </div>
             }
           </div>
-
-          <!-- Email -->
           <div class="col-12">
             <label class="form-label fw-semibold">Email</label>
             <input type="email" class="form-control input-field" formControlName="email" placeholder="Enter your email"/>
@@ -55,8 +50,6 @@
               </div>
             }
           </div>
-
-          <!-- Password -->
           <div class="col-12 position-relative">
             <label class="form-label fw-semibold">Password</label>
             <div class="input-group input-group-password">
@@ -77,8 +70,6 @@
               </div>
             }
           </div>
-
-          <!-- Phone -->
           <div class="col-12">
             <label class="form-label fw-semibold">Phone Number</label>
             <input type="tel" class="form-control input-field" formControlName="phoneNumber" placeholder="01xxxxxxxxx"/>
@@ -90,8 +81,6 @@
             }
           </div>
         </div>
-
-        <!-- Buttons -->
         <div class="d-grid gap-3 mt-4">
           <button class="btn btn-save" type="submit" [disabled]="accountForm.invalid">Save Changes</button>
           <button class="btn btn-cancel" type="button" (click)="toggleEdit()">Cancel</button>

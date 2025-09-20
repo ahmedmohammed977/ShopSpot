@@ -90,21 +90,16 @@ app-add-to-cart button:hover,
     width: 100% !important;
   }
 }
-/* مساحة تحت النافبار */
 body {
-  padding-top: 70px; /* نفس ارتفاع النافبار */
+  padding-top: 70px; 
 }
-
-/* عنوان الصفحة في النص */
 h3.best-seller-title {
   text-align: center;
   margin-top: 120px;
   font-weight: bold;
   font-size: 2.5rem;
-  color: #ff416c; /* ممكن تغير اللون حسب رغبتك */
+  color: #ff416c; 
 }
-
-/* تجعل كل محتوى المنتجات مركزي */
 .row.justify-content-center {
   justify-content: center !important;
 }

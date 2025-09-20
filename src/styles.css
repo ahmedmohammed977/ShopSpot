@@ -61,9 +61,8 @@
     transform: translateY(0);
   }
 }
-/* شكل فخم ومبهّر للرسائل */
 .custom-toast {
-  background: linear-gradient(135deg, #ff5f6d, #ffc371); /* تدرج ألوان جذاب */
+  background: linear-gradient(135deg, #ff5f6d, #ffc371); 
   color: #fff;
   font-weight: 700;
   font-size: 16px;
@@ -73,5 +72,5 @@
 }
 
 .custom-toast .toast-progress {
-  background: #fff !important; /* شريط التقدم بلون بارز */
+  background: #fff !important; 
 }

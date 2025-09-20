@@ -1,7 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
 import { provideRouter, withViewTransitions, withInMemoryScrolling, withHashLocation } from '@angular/router';
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -19,7 +18,6 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withHashLocation()   
     ),
-    provideClientHydration(withEventReplay()),
     provideAnimations(),
     provideToastr({
       timeOut: 4000,

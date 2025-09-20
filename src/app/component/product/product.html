@@ -1,5 +1,4 @@
 <div class="container my-4">
-  <!-- عنوان في النص -->
   <h3 class="best-seller-title">Search Results</h3>
   <div class="d-flex justify-content-center mb-3">
     <input
@@ -9,8 +8,6 @@
       [(ngModel)]="searchTerm"
     />
   </div>
-
-  <!-- المنتجات -->
   <div class="row g-3 justify-content-center my-3">
     @for (product of productsArray | filter: searchTerm; track product.id) {
       <div class="col-md-2 product">
@@ -31,7 +28,6 @@
         </div>
 
         <div class="w-100">
-          <!-- زر السلة -->
           @if (isInCart(product)) {
             <button class="btn btn-success w-100" disabled>
               <i class="fa fa-check"></i>
@@ -46,8 +42,6 @@
               إضافة للسلة
             </button>
           }
-
-          <!-- زر المفضلة -->
           @if (isInWishlist(product)) {
             <button
               class="btn btn-danger w-100 mt-2"

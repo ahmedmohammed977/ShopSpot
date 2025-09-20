@@ -1,6 +1,6 @@
 .wishlist-container {
-  padding-top: 120px; /* يبعد المحتوى عن النافبار */
-  min-height: calc(100vh - 120px); /* يضمن وجود مساحة كافية للعرض فوق نصف الصفحة */
+  padding-top: 120px; 
+  min-height: calc(100vh - 120px); 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,4 +11,14 @@
   color: #333;
   margin-bottom: 40px;
   text-align: center;
+}
+.product-img {
+  max-height: 250px;  
+  object-fit: contain; 
+}
+
+@media (max-width: 768px) {
+  .product-img {
+    max-height: 200px; 
+  }
 }
