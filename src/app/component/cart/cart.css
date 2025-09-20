@@ -6,11 +6,11 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cart-container {
-  padding-top: 120px; /* يبعد المحتوى عن النافبار */
-  min-height: calc(100vh - 120px); /* يضمن مساحة مناسبة للعرض فوق منتصف الصفحة */
+  padding-top: 120px; 
+  min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* محتوى الكارت يبدأ من تحت النافبار */
+  justify-content: flex-start; 
   gap: 20px;
 }
 .product:hover {
@@ -48,4 +48,14 @@
   background: #ff8c00;
   color: #fff;
   transform: scale(1.1);
+}
+.product-img {
+  max-height: 250px;  
+  object-fit: contain; 
+}
+
+@media (max-width: 768px) {
+  .product-img {
+    max-height: 200px; 
+  }
 }

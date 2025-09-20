@@ -1,7 +1,28 @@
 .product-container {
-  padding-top: 120px; /* يبعد المحتوى عن النافبار */
-  min-height: calc(100vh - 120px); /* يضمن وجود مساحة كافية للعرض فوق نصف الصفحة */
+  padding-top: 120px; 
+  min-height: calc(100vh - 120px); 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* يجعل المحتوى متوسط عموديًا */
+  justify-content: center; 
+}
+.product-img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    text-align: center;
+  }
+
+  .product-container .w-100 {
+    align-items: center !important;
+  }
+
+  .product-container p,
+  .product-container h5 {
+    text-align: center;
+  }
 }
